@@ -16,6 +16,7 @@ function fixDictionaryApi() {
   }
 
   let content = fs.readFileSync(DICTIONARY_API_PATH, 'utf8');
+  let fixed = false;
   
   // Remove unused ProblemDetails import
   const originalImport = `import type {
@@ -33,10 +34,26 @@ function fixDictionaryApi() {
 
   if (content.includes(originalImport)) {
     content = content.replace(originalImport, fixedImport);
-    fs.writeFileSync(DICTIONARY_API_PATH, content, 'utf8');
     console.log('✅ Fixed unused ProblemDetails import in DictionaryApi.ts');
+    fixed = true;
   } else {
     console.log('ℹ️  No ProblemDetails import found to fix in DictionaryApi.ts');
+  }
+
+  // Validate method signatures
+  const hasDictionaryGet = content.includes('async dictionaryGet(requestParameters: DictionaryGetRequest');
+  const hasDownloadSketchup = content.includes('async dictionaryDownloadSketchup(requestParameters: DictionaryDownloadSketchupRequest');
+  
+  console.log(`📋 API Validation:`);
+  console.log(`   - dictionaryGet method: ${hasDictionaryGet ? '✅' : '❌'}`);
+  console.log(`   - dictionaryDownloadSketchup method: ${hasDownloadSketchup ? '✅' : '❌'}`);
+  
+  if (!hasDictionaryGet || !hasDownloadSketchup) {
+    console.log('⚠️  Warning: Expected method signatures not found. This may cause build errors.');
+  }
+
+  if (fixed) {
+    fs.writeFileSync(DICTIONARY_API_PATH, content, 'utf8');
   }
 }
 

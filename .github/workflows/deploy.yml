@@ -38,6 +38,9 @@ jobs:
       - name: Create API specs directory
         run: mkdir -p api-specs
 
+      - name: Show OpenAPI generator version
+        run: npx @openapitools/openapi-generator-cli version
+
       - name: Generate API client
         run: yarn api:update
 
