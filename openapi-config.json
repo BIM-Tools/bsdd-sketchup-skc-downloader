@@ -1,0 +1,18 @@
+{
+  "generatorName": "typescript-fetch",
+  "inputSpec": "./swagger.json",
+  "outputDir": "./src/generated/api",
+  "additionalProperties": {
+    "npmName": "@bsdd/api-client",
+    "npmVersion": "1.0.0",
+    "typescriptThreePlus": true,
+    "supportsES6": true,
+    "modelPropertyNaming": "camelCase",
+    "withoutRuntimeChecks": true,
+    "enumPropertyNaming": "PascalCase"
+  },
+  "globalProperties": {
+    "apiDocs": false,
+    "modelDocs": false
+  }
+}

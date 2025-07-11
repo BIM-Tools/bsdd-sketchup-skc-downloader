@@ -1,0 +1,48 @@
+{
+  "name": "bsdd-sketchup-skc-downloader",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A web application for downloading SketchUp Classification (SKC) files from the buildingSMART Data Dictionary (bSDD)",
+  "license": "MIT",
+  "homepage": "https://bim-tools.github.io/bsdd-sketchup-skc-downloader/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bim-tools/bsdd-sketchup-skc-downloader.git"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "api:download": "curl -o api-specs/swagger.json \"https://app.swaggerhub.com/apiproxy/registry/buildingSMART/Dictionaries/v1/swagger.json\"",
+    "api:generate": "npx @openapitools/openapi-generator-cli generate -c scripts/openapi-config.json",
+    "api:update": "yarn api:download && yarn api:generate"
+  },
+  "dependencies": {
+    "@azure/msal-browser": "^4.15.0",
+    "@azure/msal-react": "^3.0.15",
+    "@mantine/core": "^8.1.3",
+    "@mantine/form": "^8.1.3",
+    "@mantine/hooks": "^8.1.3",
+    "@mantine/notifications": "^8.1.3",
+    "@tabler/icons-react": "^3.34.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@openapitools/openapi-generator-cli": "^2.21.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react-swc": "^3.10.2",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.35.1",
+    "vite": "^7.0.4"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}
