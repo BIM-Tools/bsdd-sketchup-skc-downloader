@@ -35,6 +35,12 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Create API specs directory
+        run: mkdir -p api-specs
+
+      - name: Generate API client
+        run: yarn api:update
+
       - name: Lint code
         run: yarn lint
 

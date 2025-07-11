@@ -9,7 +9,8 @@
     "supportsES6": true,
     "modelPropertyNaming": "camelCase",
     "withoutRuntimeChecks": true,
-    "enumPropertyNaming": "PascalCase"
+    "enumPropertyNaming": "PascalCase",
+    "removeOperationIdPrefix": true
   },
   "globalProperties": {
     "apiDocs": false,
