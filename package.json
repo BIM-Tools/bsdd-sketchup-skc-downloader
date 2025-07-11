@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "description": "A web application for downloading SketchUp Classification (SKC) files from the buildingSMART Data Dictionary (bSDD)",
   "license": "MIT",
-  "homepage": "https://bim-tools.github.io/bsdd-sketchup-skc-downloader/",
+  "homepage": "https://BIM-Tools.github.io/bsdd-sketchup-skc-downloader/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bim-tools/bsdd-sketchup-skc-downloader.git"
+    "url": "https://github.com/BIM-Tools/bsdd-sketchup-skc-downloader.git"
   },
   "type": "module",
   "scripts": {
@@ -17,7 +17,8 @@
     "preview": "vite preview",
     "api:download": "curl -o api-specs/swagger.json \"https://app.swaggerhub.com/apiproxy/registry/buildingSMART/Dictionaries/v1/swagger.json\"",
     "api:generate": "npx @openapitools/openapi-generator-cli generate -c scripts/openapi-config.json",
-    "api:update": "yarn api:download && yarn api:generate"
+    "api:fix": "node scripts/fix-generated-api.cjs",
+    "api:update": "yarn api:download && yarn api:generate && yarn api:fix"
   },
   "dependencies": {
     "@azure/msal-browser": "^4.15.0",

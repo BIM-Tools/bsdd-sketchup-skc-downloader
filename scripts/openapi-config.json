@@ -10,10 +10,12 @@
     "modelPropertyNaming": "camelCase",
     "withoutRuntimeChecks": true,
     "enumPropertyNaming": "PascalCase",
-    "removeOperationIdPrefix": true
+    "removeOperationIdPrefix": true,
+    "useSingleRequestParameter": false
   },
   "globalProperties": {
     "apiDocs": false,
-    "modelDocs": false
+    "modelDocs": false,
+    "skipFormModel": true
   }
 }

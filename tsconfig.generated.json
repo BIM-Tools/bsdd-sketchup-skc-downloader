@@ -13,7 +13,8 @@
     "esModuleInterop": true,
     "strict": false,
     "noUnusedLocals": false,
-    "noUnusedParameters": false
+    "noUnusedParameters": false,
+    "exactOptionalPropertyTypes": false
   },
   "include": ["src/generated/**/*"],
   "exclude": []
