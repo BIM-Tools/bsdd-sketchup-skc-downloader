@@ -11,7 +11,9 @@
     "withoutRuntimeChecks": true,
     "enumPropertyNaming": "PascalCase",
     "removeOperationIdPrefix": true,
-    "useSingleRequestParameter": false
+    "useSingleRequestParameter": true,
+    "withInterfaces": false,
+    "snapshot": false
   },
   "globalProperties": {
     "apiDocs": false,

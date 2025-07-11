@@ -50,6 +50,23 @@ function fixDictionaryApi() {
   
   if (!hasDictionaryGet || !hasDownloadSketchup) {
     console.log('⚠️  Warning: Expected method signatures not found. This may cause build errors.');
+    
+    // Show actual method signatures for debugging
+    const dictionaryGetMatch = content.match(/async dictionaryGet\([^)]+\)/);
+    const downloadSketchupMatch = content.match(/async dictionaryDownloadSketchup\([^)]+\)/);
+    
+    console.log('🔍 Actual method signatures found:');
+    if (dictionaryGetMatch) {
+      console.log(`   - dictionaryGet: ${dictionaryGetMatch[0]}`);
+    } else {
+      console.log('   - dictionaryGet: NOT FOUND');
+    }
+    
+    if (downloadSketchupMatch) {
+      console.log(`   - dictionaryDownloadSketchup: ${downloadSketchupMatch[0]}`);
+    } else {
+      console.log('   - dictionaryDownloadSketchup: NOT FOUND');
+    }
   }
 
   if (fixed) {
