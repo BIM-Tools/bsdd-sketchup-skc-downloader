@@ -1,5 +1,7 @@
 import type { Configuration, PopupRequest } from '@azure/msal-browser';
 
+const BSDD_API_SCOPE = 'https://buildingsmartservices.onmicrosoft.com/bsddapi/read';
+
 // Hardcoded redirect URI for production and localhost for development
 const getCurrentOrigin = () => {
     if (typeof window === 'undefined') return 'http://localhost:5173';
@@ -27,18 +29,18 @@ export const msalConfig: Configuration = {
 };
 
 export const loginRequest: PopupRequest = {
-    scopes: ['https://buildingsmartservices.onmicrosoft.com/api/read'],
+    scopes: [BSDD_API_SCOPE],
     prompt: 'select_account',
 };
 
 // Use test environment for development (supports CORS)
 // export const bsddConfig = {
 //     apiUrl: 'https://test.bsdd.buildingsmart.org',
-//     apiScope: 'https://buildingsmartservices.onmicrosoft.com/api/read',
+//     apiScope: BSDD_API_SCOPE,
 // };
 
 // For production deployment, change to: 'https://api.bsdd.buildingsmart.org'
 export const bsddConfig = {
     apiUrl: 'https://api.bsdd.buildingsmart.org',
-    apiScope: 'https://buildingsmartservices.onmicrosoft.com/bsddapi/read',
+    apiScope: BSDD_API_SCOPE,
 };
