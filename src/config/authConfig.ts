@@ -2,7 +2,7 @@ import type { Configuration, PopupRequest } from '@azure/msal-browser';
 
 export const msalConfig: Configuration = {
     auth: {
-        clientId: '4aba821f-d4ff-498b-a462-c2837dbbba70',
+        clientId: import.meta.env.VITE_CLIENT_ID as string,
         authority: 'https://authentication.buildingsmart.org/tfp/buildingsmartservices.onmicrosoft.com/b2c_1a_signupsignin_c',
         knownAuthorities: ['authentication.buildingsmart.org'],
         redirectUri: window.location.origin,
@@ -19,9 +19,14 @@ export const loginRequest: PopupRequest = {
     prompt: 'select_account',
 };
 
+// Use test environment for development (supports CORS)
+// export const bsddConfig = {
+//     apiUrl: 'https://test.bsdd.buildingsmart.org',
+//     apiScope: 'https://buildingsmartservices.onmicrosoft.com/api/read',
+// };
+
+// For production deployment, change to: 'https://api.bsdd.buildingsmart.org'
 export const bsddConfig = {
-    // Use test environment for development (supports CORS)
-    // For production deployment, change to: 'https://api.bsdd.buildingsmart.org'
-    apiUrl: 'https://test.bsdd.buildingsmart.org',
+    apiUrl: 'https://api.bsdd.buildingsmart.org',
     apiScope: 'https://buildingsmartservices.onmicrosoft.com/api/read',
 };
