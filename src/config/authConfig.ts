@@ -40,5 +40,5 @@ export const loginRequest: PopupRequest = {
 // For production deployment, change to: 'https://api.bsdd.buildingsmart.org'
 export const bsddConfig = {
     apiUrl: 'https://api.bsdd.buildingsmart.org',
-    apiScope: 'https://buildingsmartservices.onmicrosoft.com/api/read',
+    apiScope: 'https://buildingsmartservices.onmicrosoft.com/bsddapi/read',
 };
