@@ -14,7 +14,7 @@ const getCurrentOrigin = () => {
 
 export const msalConfig: Configuration = {
     auth: {
-        clientId: import.meta.env.VITE_CLIENT_ID as string,
+        clientId: "0fcd615b-f2b7-4514-9046-7b3e545ba341",
         authority: 'https://authentication.buildingsmart.org/tfp/buildingsmartservices.onmicrosoft.com/b2c_1a_signupsignin_c',
         knownAuthorities: ['authentication.buildingsmart.org'],
         redirectUri: getCurrentOrigin(),
